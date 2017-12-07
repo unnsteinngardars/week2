@@ -57,5 +57,5 @@ MY_CIDR=${MY_PUBLIC_IP}/32
 echo Using CIDR ${MY_CIDR} for access restrictions.
 
 set +e
-aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 22 --cidr ${MY_PRIVATE_IP}
+aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 22 --cidr ${MY_PRIVATE_IP}/32
 aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 80 --cidr ${MY_CIDR}
