@@ -14,6 +14,7 @@ node {
     }
     stage('Deploy') {
         echo 'Deploying...'
+        sh 'npm run build'
         // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         //      sh 'usermod -a -G docker jenkins'
         //      sh 'docker login -u $USERNAME -p $PASSWORD'
