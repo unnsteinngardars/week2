@@ -46,6 +46,7 @@ cd build
 
 echo Building docker image
 
+dockerd
 docker build -t ungar/tictactoe:$GIT_COMMIT .
 
 rc=$?
