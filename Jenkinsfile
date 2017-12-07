@@ -9,9 +9,11 @@ node {
     }
     stage('Test') {
         echo 'Testing..'
+        echo 'Running unit tests'
         sh 'npm run testJenkins'
     }
     stage('Deploy') {
         echo 'Deploying....'
+        sh './dockerbuild.sh'
     }
 }
