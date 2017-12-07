@@ -1,6 +1,5 @@
-#!/bin/bash
-echo $(whoami)
-exit 0
+#!/bin/bash -xv
+
 echo Cleaning...
 rm -rf ./dist
 
