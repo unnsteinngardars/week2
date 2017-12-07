@@ -7,7 +7,6 @@ INSTANCE_DIR="ec2_instance"
 export AMI_IMAGE_ID="ami-15e9c770"
 
 echo No instance information present, continuing.
-[ -d "${INSTANCE_DIR}" ] || mkdir ${INSTANCE_DIR}
 
 USERNAME=$(aws iam get-user --query 'User.UserName' --output text)
 
