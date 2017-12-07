@@ -1,5 +1,6 @@
 #!/bin/bash
-
+echo $(whoami)
+exit 0
 echo Cleaning...
 rm -rf ./dist
 
@@ -8,8 +9,7 @@ if [ -z "$GIT_COMMIT" ]; then
   export GIT_COMMIT=$(git rev-parse HEAD)
   export GIT_URL=$(git config --get remote.origin.url)
 fi
-echo $GIT_COMMIT
-exit 0
+
 # Remove .git from url in order to get https link to repo (assumes https url for GitHub)
 export GITHUB_URL=$(echo $GIT_URL | rev | cut -c 5- | rev)
 
