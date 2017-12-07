@@ -5,13 +5,7 @@ node {
         env.PATH = "${nodeHome}/bin:${env.PATH}"
         checkout scm
         sh 'npm install'
-        dir('/var/lib/jenkins/jobs/week2/workspace/client'){
-            sh 'pwd'
-            sh 'npm install'
-        }
-        dir('/'){
-            sh 'pwd'
-        }
+        sh 'cd client && npm install && cd ..'
     }
     stage('Test') {
         echo 'Testing..'
