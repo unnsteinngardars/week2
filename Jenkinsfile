@@ -15,8 +15,7 @@ node {
     stage('Deploy') {
         echo 'Deploying....'
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-            sh 'echo $USERNAME'
-            // sh 'docker login --username $USERNAME --password $PASSWORD'
+             sh 'docker login -u $USERNAME -p $PASSWORD'
         }
     }
 }
