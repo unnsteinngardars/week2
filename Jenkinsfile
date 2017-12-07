@@ -14,6 +14,8 @@ node {
     }
     stage('Deploy') {
         echo 'Deploying....'
-        echo ${DeclarativeDockerUtils.getRegistryCredentialsId('docker-id')}
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+            sh 'docker login -u $USERNAME -p $PASSWORD'
+        }
     }
 }
