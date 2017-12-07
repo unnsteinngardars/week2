@@ -5,9 +5,11 @@ node {
         env.PATH = "${nodeHome}/bin:${env.PATH}"
         checkout scm
         sh 'npm install'
+        sh 'cd client && npm install && cd ..'
     }
     stage('Test') {
         echo 'Testing..'
+        sh 'npm run testJenkins'
     }
     stage('Deploy') {
         echo 'Deploying....'
