@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -xv
 # Test machine 192.168.50.4
 set -e
 
@@ -37,5 +37,8 @@ ssh -o StrictHostKeyChecking=no -i "./ec2_instance/${SECURITY_GROUP_NAME}.pem" e
 
 echo Running script
 ssh -o StrictHostKeyChecking=no -i "./ec2_instance/${SECURITY_GROUP_NAME}.pem" ec2-user@${INSTANCE_PUBLIC_NAME} "~/docker-compose-and-run.sh ${GIT_COMMIT}"
+
+echo "GIT_COMMIT=${GIT_COMMIT}" > .env
+scp -o StrictHostKeyChecking=no -i "./ec2_instance/${SECURITY_GROUP_NAME}.pem" ./.env ec2-user@${INSTANCE_PUBLIC_NAME}:~/.env
 
 echo Done updating environment
