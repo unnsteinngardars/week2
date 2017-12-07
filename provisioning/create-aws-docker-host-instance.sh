@@ -6,6 +6,7 @@ INSTANCE_DIR="ec2_instance"
 
 export AMI_IMAGE_ID="ami-15e9c770"
 
+mkdir ${INSTANCE_DIR}
 
 echo No instance information present, continuing.
 
