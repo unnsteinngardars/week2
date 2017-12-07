@@ -19,8 +19,6 @@ node {
              sh 'docker login -u $USERNAME -p $PASSWORD'
         }
         sh './dockerbuild.sh'
-        sh 'cd provisioning'
-        sh 'pwd'
-        sh './create-aws-docker-host-instance.sh'
+        sh 'cd provisioning && ./create-aws-docker-host-instance.sh'
     }
 }
