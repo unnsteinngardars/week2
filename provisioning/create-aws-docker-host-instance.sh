@@ -16,6 +16,9 @@ SECURITY_GROUP_NAME=tictactoe-app-${USERNAME}
 
 echo "Using security group name ${SECURITY_GROUP_NAME}"
 
+MY_PRIVATE_IP=$(hostname -I | cut -d' ' -f1)
+MY_PUBLIC_IP=$(curl http://checkip.amazonaws.com)
+
 if [ ! -e ./ec2_instance/security-group-name.txt ]; then
     echo ${SECURITY_GROUP_NAME} > ./ec2_instance/security-group-name.txt
 fi
@@ -51,14 +54,11 @@ if [ ! -e ./ec2_instance/instance-public-name.txt ]; then
     echo ${INSTANCE_PUBLIC_NAME} > ./ec2_instance/instance-public-name.txt
 fi
 
-MY_PRIVATE_IP=$(hostname -I | cut -d' ' -f1)
-MY_PUBLIC_IP=$(curl http://checkip.amazonaws.com)
 MY_CIDR=${MY_PUBLIC_IP}/32
 MY_PRIVATE_CIDR=${MY_PRIVATE_IP}/32
 ALL=0.0.0.0/0
 
 echo Using CIDR ${MY_CIDR} for access restrictions.
-source ./create-aws-docker-host-instance.sh
 
 set +e
 aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 22 --cidr ${MY_PRIVATE_CIDR}
