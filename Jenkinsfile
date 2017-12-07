@@ -21,6 +21,6 @@ node {
         sh './dockerbuild.sh'
         sh 'cd provisioning'
         sh 'pwd'
-        sh 'create-aws-docker-host-instance.sh'
+        sh './create-aws-docker-host-instance.sh'
     }
 }
