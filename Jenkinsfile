@@ -14,6 +14,6 @@ node {
     }
     stage('Deploy') {
         echo 'Deploying....'
-        sh './dockerbuild.sh'
+        echo ${DeclarativeDockerUtils.getRegistryCredentialsId('docker-id')}
     }
 }
