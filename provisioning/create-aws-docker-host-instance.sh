@@ -4,7 +4,7 @@ set -e
 echo "Check for instance information..."
 INSTANCE_DIR="ec2_instance"
 
-export AMI_IMAGE_ID="ami-1a962263"
+export AMI_IMAGE_ID="ami-15e9c770"
 
 echo No instance information present, continuing.
 [ -d "${INSTANCE_DIR}" ] || mkdir ${INSTANCE_DIR}
@@ -41,8 +41,8 @@ if [ ! -e ./ec2_instance/instance-id.txt ]; then
     echo ${INSTANCE_ID} > ./ec2_instance/instance-id.txt
 
     echo Waiting for instance to be running
-    echo aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
-    aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
+    echo aws ec2 wait --region us-east-2 instance-running --instance-ids ${INSTANCE_ID}
+    aws ec2 wait --region us-east-2 instance-running --instance-ids ${INSTANCE_ID}
     echo EC2 instance ${INSTANCE_ID} ready and available on ${INSTANCE_PUBLIC_NAME}
 fi
 
