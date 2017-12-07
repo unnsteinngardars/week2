@@ -12,6 +12,7 @@ echo No instance information present, continuing.
 USERNAME=$(aws iam get-user --query 'User.UserName' --output text)
 
 SECURITY_GROUP_NAME=tictactoe-${USERNAME}
+./add-my-ip-to-security-group.sh SECURITY_GROUP_NAME
 
 echo "Using security group name ${SECURITY_GROUP_NAME}"
 

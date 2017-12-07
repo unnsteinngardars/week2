@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 . ./ec2-instance-settings.sh
-
+SECURITY_GROUP_NAME=$1
 MY_PUBLIC_IP=$(curl http://checkip.amazonaws.com)
 
 MY_CIDR=${MY_PUBLIC_IP}/32
