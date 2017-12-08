@@ -14,17 +14,17 @@ module.exports = function(injected){
                 }
 
                 let cmdHandlers = {
-                    // "CreateGame": function (cmd) {
-                    //     applyEvents([{
-                    //         gameId: cmd.gameId,
-                    //         type: "GameCreated",
-                    //         user: cmd.user,
-                    //         name: cmd.name,
-                    //         timeStamp: cmd.timeStamp,
-                    //         side:'X'
-                    //     }]);
+                    "CreateGame": function (cmd) {
+                        applyEvents([{
+                            gameId: cmd.gameId,
+                            type: "GameCreated",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp,
+                            side:'X'
+                        }]);
 
-                    // },
+                    },
                     "JoinGame": function (cmd) {
                         if(gameState.gameFull()){
                             applyEvents( [{
