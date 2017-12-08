@@ -3,4 +3,6 @@
 /public
 /build
 /.idea/
+/jenkins/ec2_instance/
+/provisioning/ec2_instance/
 todo.md
