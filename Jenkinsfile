@@ -5,6 +5,8 @@ node {
         env.PATH = "${nodeHome}/bin:${env.PATH}"
         checkout scm
         sh 'npm install'
+        sh 'npm install -g nodemon'
+        sh 'npm install -g create-react-app'
         sh 'cd client && npm install && cd ..'
     }
     stage('Test') {
@@ -19,7 +21,6 @@ node {
              sh 'docker login -u $USERNAME -p $PASSWORD'
         }
         sh './dockerbuild.sh'
-        //sh 'cd provisioning && ./add-my-ip-to-security-group.sh && ./create-aws-docker-host-instance.sh'
         sh 'cd provisioning && ./provision-new-environment.sh'
     }
 }
