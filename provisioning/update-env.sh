@@ -1,4 +1,4 @@
-#! /bin/bash -xv
+#!/bin/bash -vx
 # Test machine 192.168.50.4
 set -e
 

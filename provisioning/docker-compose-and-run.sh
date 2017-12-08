@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -vx
+#!/usr/bin/env bash
 
 export GIT_COMMIT=$1
 echo $GIT_COMMIT
