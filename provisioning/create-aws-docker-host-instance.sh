@@ -20,7 +20,7 @@ MY_PRIVATE_IP=$(hostname -I | cut -d' ' -f1)
 MY_PUBLIC_IP=$(curl http://checkip.amazonaws.com)
 
 if [ ! -e ./ec2_instance/security-group-name.txt ]; then
-    echo ${SECURITY_GROUP_NAME} > ./ec2_instance/security-group-name.txt
+    echo ${SECURITY_GROUP_NAME} > ~/ec2_instance/security-group-name.txt
 fi
 
 if [ ! -e ${INSTANCE_DIR}/${SECURITY_GROUP_NAME}.pem ]; then
@@ -30,10 +30,10 @@ fi
 
 if [ ! -e ./ec2_instance/security-group-id.txt ]; then
     SECURITY_GROUP_ID=$(aws ec2 create-security-group --group-name ${SECURITY_GROUP_NAME} --description "security group for dev environment in EC2" --query "GroupId"  --output=text)
-    echo ${SECURITY_GROUP_ID} > ./ec2_instance/security-group-id.txt
+    echo ${SECURITY_GROUP_ID} > ~/ec2_instance/security-group-id.txt
     echo Created security group ${SECURITY_GROUP_NAME} with ID ${SECURITY_GROUP_ID}
 else
-    SECURITY_GROUP_ID=$(cat ./ec2_instance/security-group-id.txt)
+    SECURITY_GROUP_ID=$(cat ~/ec2_instance/security-group-id.txt)
 fi
 
 
@@ -51,7 +51,7 @@ fi
 
 if [ ! -e ./ec2_instance/instance-public-name.txt ]; then
     export INSTANCE_PUBLIC_NAME=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --query "Reservations[*].Instances[*].PublicDnsName" --output=text)
-    echo ${INSTANCE_PUBLIC_NAME} > ./ec2_instance/instance-public-name.txt
+    echo ${INSTANCE_PUBLIC_NAME} > ~/ec2_instance/instance-public-name.txt
 fi
 
 MY_CIDR=${MY_PUBLIC_IP}/32
