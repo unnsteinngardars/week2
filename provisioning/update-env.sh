@@ -16,6 +16,8 @@ echo Deploy revision ${GIT_COMMIT} to http://${INSTANCE_PUBLIC_NAME}
 
 echo SCP
 
+ssh-keyscan
+
 status='unknown'
 while [ ! "${status}" == "ok" ]
 do
