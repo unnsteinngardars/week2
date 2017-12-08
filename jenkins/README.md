@@ -1,4 +1,7 @@
 # Create ec2 instance for jenkins
+
+*See URL.md for further information on running instances + username for Jenkins*
+
 Using the following scripts and files
 * cicd-access-policy.json
 * createAndConfigureRole.sh
