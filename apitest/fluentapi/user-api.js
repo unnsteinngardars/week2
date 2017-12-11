@@ -1,5 +1,8 @@
+var path = require('path');
+const file = path.basename(__filename);
 module.exports=function(injected){
-
+    
+    
     const io = require('socket.io-client');
     const RoutingContext = injected('RoutingContext');
     const generateUUID = require('../../client/src/common/framework/uuid');
@@ -20,6 +23,7 @@ module.exports=function(injected){
             push:function(verb){
                 waitingFor.counters[verb]=waitingFor.counters[verb] || [];
                 waitingFor.counters[verb].push(verb);
+                console.log("EVENT: " + verb + " pushed on waitingFor.counters[verb] inside " + file + " at " + Date());
             },
             pop:function(verb, message){
                 if(!waitingFor.counters[verb]){
@@ -27,7 +31,8 @@ module.exports=function(injected){
                         fail("Not waiting on " + verb  + ", ERROR!" + JSON.stringify(message) + JSON.stringify(game));
                     }
                 } else {
-                    waitingFor.counters[verb].pop();
+                    let v = waitingFor.counters[verb].pop();
+                    console.log("EVENT: " + v + " popped from waitingFor.counters[verb] inside " + file + " at " + Date())
                 }
             },
             count(){
@@ -102,6 +107,8 @@ module.exports=function(injected){
         function routeCommand(command){
             game.sentCommands.push(command);
             routingContext.commandRouter.routeMessage(command);
+            console.log("inside routeCommand in " + file);
+            console.log(command);
         }
 
 

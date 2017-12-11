@@ -1,6 +1,6 @@
 const _ = require('lodash');
-
-
+var path = require('path');
+const file = path.basename(__filename);
 module.exports = function (settings) {
     const routingKey = (settings && settings.routingKey) || "type";
     const listeners = {};
@@ -29,11 +29,13 @@ module.exports = function (settings) {
             }
         },
         routeMessage: function (message) {
+            //console.trace(message);
+            console.log("message inside " + file);
+            console.log(message);
             let routingValue = message[routingKey];
             if (routingValue === '*') {
                 console.log("WARNING: Event router routing message that has special value * in its routing key attribute! ", message);
             }
-
             function routeMessage(routingValue, message) {
                 if (listeners[routingValue]) {
                     _.each(listeners[routingValue], function (listener) {
