@@ -53,7 +53,7 @@ module.exports=function(injected){
                 waitingFor.push("expectDatabaseCleaned");
                 routingContext.eventRouter.on('databaseCleaned', function(chatMessage){
                     let msg = waitingFor.pop(); // expectDatabaseCleaned
-                    console.log("event '" + msg + "' popped at " + Date());
+                    console.log("event '" + msg + "'2 popped at " + Date());
                     whenClean && whenClean();
                 });
                 return me;

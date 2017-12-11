@@ -12,36 +12,36 @@ Using the following scripts and files
 * destroyInstance.sh
 
 ## Create and configure Role
-'''./createAndConfigureRole.sh'''
+```./createAndConfigureRole.sh```
 
 CreateRole operations creates role StudentCICDServer
 CreateInstanceProfile operation creates instance profile CICDServer-Instance-Profile
 
 ## Create credentials and provision Instance
-'''./createCredentialsAndProvisionInstance.sh'''
+```./createCredentialsAndProvisionInstance.sh```
 
 ## Deploy on instances
-'''./deployOnInstance.sh'''
+```./deployOnInstance.sh```
 
 # Configure AWS jenkins server
 
-'''ssh -i ./ec2_instance/pem-file-name.pem ec2-user@instance-public-name'''
-'''sudo su -s /bin/bash jenkins'''
-'''cd /var/lib/jenkins'''
-'''ssh-keygen'''
+```ssh -i ./ec2_instance/pem-file-name.pem ec2-user@instance-public-name```
+```sudo su -s /bin/bash jenkins```
+```cd /var/lib/jenkins```
+```ssh-keygen```
 press enter until randomart shows up
-'''cat .ssh/id_rsa.pub'''
+```cat .ssh/id_rsa.pub```
 
 * Copy public key to clipboard
 * Add key to github
 
 Exit from jenkins user
-'''exit'''
-'''sudo vim /var/lib/jenkins/config.xml'''
+```exit```
+```sudo vim /var/lib/jenkins/config.xml```
 change <useSecurity>true</useSecurity> to false
 and remove <authorizeStrategy> and <securityRealm>
-'''sudo service jenkins restart'''
-'''sudo reboot'''
+```sudo service jenkins restart```
+```sudo reboot```
 
 ## Configure jenkins in browser
 * navigate to INSTANCE_PUBLIC_NAME:8080
@@ -88,11 +88,11 @@ This file will be edited
   * select From the Jenkins master ~/.ssh
 * open terminal where you are logged into the linux AMI machine
 * enter the following commands
-'''sudo yum install git'''
-'''sudo su -s /bin/bash jenkins'''
-'''ssh git@github.com'''
-'''yes'''
-'''exit'''
+```sudo yum install git```
+```sudo su -s /bin/bash jenkins```
+```ssh git@github.com```
+```yes```
+```exit```
 
 * add, commit and push the Jenkinsfile to your repo and see it getting polled by jenkins
 
@@ -108,16 +108,16 @@ This file will be edited
 
 ### Install NPM on ec2 instance and jenkins user
 
-'''curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash'''
-'''. ~/.nvm/nvm.sh'''
-'''nvm install 6.9.1'''
-'''npm install'''
-'''sudo su -s /bin/bash jenkins'''
-'''curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash'''
-'''. ~/.nvm/nvm.sh'''
-'''nvm install 6.9.1'''
-'''cd /var/lib/jenkins/jobs/week2/workspace/client'''
-'''npm install'''
+```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash```
+```. ~/.nvm/nvm.sh```
+```nvm install 6.9.1```
+```npm install```
+```sudo su -s /bin/bash jenkins```
+```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash```
+```. ~/.nvm/nvm.sh```
+```nvm install 6.9.1```
+```cd /var/lib/jenkins/jobs/week2/workspace/client```
+```npm install```
 
 ### Add Node JS plugin
 * Add Node JS plugin for jenkins if not already available
@@ -161,6 +161,6 @@ node {
 
 ### aws configure on jenkins
 run aws configure on jenkins to grant aws cli to jenkins
-'''aws configure'''
+```aws configure```
 create key and enter stuff as before
 key, secret key, zone and text
