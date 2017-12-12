@@ -5,8 +5,6 @@ node {
         env.PATH = "${nodeHome}/bin:${env.PATH}"
         checkout scm
         sh 'npm install'
-        sh 'npm install -g create-react-app'
-        sh 'npm install -g db-migrate'
         sh 'cd client && npm install && cd ..'
     }
     stage('Test') {
