@@ -13,8 +13,6 @@ node {
         echo 'Testing..'
         echo 'Running unit tests'
         sh 'npm run testJenkins'
-        echo 'Running api tests'
-        sh 'npm run apitestJenkins'
     }
     stage('Deploy') {
         echo 'Deploying..'
@@ -23,5 +21,6 @@ node {
         }
         sh './dockerbuild.sh'
         sh 'cd provisioning && ./provision-new-environment.sh'
+        sh 'npm run apitestJenkins'
     }
 }
