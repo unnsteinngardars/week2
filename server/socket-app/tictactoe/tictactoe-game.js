@@ -1,4 +1,3 @@
-
 module.exports = function(injected){
     let TictactoeState = injected('TictactoeState');
 

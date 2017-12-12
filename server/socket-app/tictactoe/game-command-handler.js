@@ -1,5 +1,4 @@
 let _ = require('lodash');
-
 module.exports = function (injected) {
     const generateUUID = injected('generateUUID');
     const commandRouter = injected('commandRouter');
@@ -14,7 +13,6 @@ module.exports = function (injected) {
     const loadLock = {};
 
     let handleCommand = function (cmd) {
-
         let aggregate = aggregateCache.get(cmd.gameId);
 
         if(!aggregate){

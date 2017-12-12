@@ -1,3 +1,5 @@
+var path = require('path');
+const file = path.basename(__filename);
 module.exports=function(injected){
     const socketIoVerb = injected('socketIoVerb');
     const messageRouter = injected('messageRouter');
@@ -17,7 +19,8 @@ module.exports=function(injected){
                 if(incomingMessageLogger){
                     incomingMessageLogger(socketIoVerb, message);
                 }
-
+                // console.log("message inside " + file);
+                // console.log(message);
                 messageRouter.routeMessage(message);
             };
 

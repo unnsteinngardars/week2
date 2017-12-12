@@ -1,3 +1,5 @@
+var path = require('path');
+const file = path.basename(__filename);
 module.exports=function(injected){
     const socketIo = injected('io');
     const messageRouter = injected('messageRouter');
@@ -7,6 +9,7 @@ module.exports=function(injected){
 
     return {
         dispatchThroughIo(routingKey, socketVerb, conditionFn){
+            // console.log("socketVerb " + socketVerb + " in " + file);
             socketVerb = socketVerb || 'eventIssued';
             conditionFn = conditionFn || function(){
                 return true;

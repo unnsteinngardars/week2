@@ -23,7 +23,7 @@ module.exports=function(injected){
             push:function(verb){
                 waitingFor.counters[verb]=waitingFor.counters[verb] || [];
                 waitingFor.counters[verb].push(verb);
-                console.log("EVENT: " + verb + " pushed on waitingFor.counters[verb] inside " + file + " at " + Date());
+                // console.log("EVENT: " + verb + " pushed on waitingFor.counters[verb] inside " + file + " at " + Date());
             },
             pop:function(verb, message){
                 if(!waitingFor.counters[verb]){
@@ -32,7 +32,7 @@ module.exports=function(injected){
                     }
                 } else {
                     let v = waitingFor.counters[verb].pop();
-                    console.log("EVENT: " + v + " popped from waitingFor.counters[verb] inside " + file + " at " + Date())
+                    // console.log("EVENT: " + v + " popped from waitingFor.counters[verb] inside " + file + " at " + Date())
                 }
             },
             count(){
@@ -107,8 +107,8 @@ module.exports=function(injected){
         function routeCommand(command){
             game.sentCommands.push(command);
             routingContext.commandRouter.routeMessage(command);
-            console.log("inside routeCommand in " + file);
-            console.log(command);
+            // console.log("inside routeCommand in " + file);
+            // console.log(command);
         }
 
 
