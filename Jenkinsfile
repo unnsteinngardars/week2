@@ -14,7 +14,6 @@ node {
         echo 'Testing...'
         echo 'Running unit tests'
         sh 'npm run testJenkins'
-        sh 'npm run startpostgres'
         sh 'npm run startserver:dev & npm run apitestJenkins && npm run loadtestJenkins && kill $! && sleep 10'
         junit '**/jasmine-reports/*.xml'
     }
