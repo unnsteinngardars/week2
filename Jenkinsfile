@@ -8,7 +8,6 @@ node {
         sh 'npm install -g nodemon'
         sh 'npm install -g create-react-app'
         sh 'cd client && npm install && cd ..'
-        sh 'npm run migratedb:prod'
     }
     stage('Test') {
         echo 'Testing..'
