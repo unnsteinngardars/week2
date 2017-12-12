@@ -15,7 +15,7 @@ node {
         echo 'Running unit tests'
         sh 'npm run testJenkins'
         sh 'npm run startpostgres'
-        sh 'npm run startserver:dev & npm run apitestJenkins && kill $!'
+        sh 'npm run startserver:dev & npm run apitestJenkins && npm run loadtestJenkins && kill $!'
     }
     stage('Deploy') {
         echo 'Deploying..'
