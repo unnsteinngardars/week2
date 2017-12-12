@@ -1,5 +1,5 @@
 require('./globals');
-
+var base = process.env.PWD;
 
 let JasmineConsoleReporter = require('jasmine-console-reporter');
 let consoleReporter = new JasmineConsoleReporter({
@@ -9,4 +9,12 @@ let consoleReporter = new JasmineConsoleReporter({
     listStyle: 'indent', // "flat"|"indent"
     activity: false
 });
+
+var reporters = require('jasmine-reporters');
+var junitReporter = new reporters.JUnitXmlReporter({
+    savePath: base+"/jasmine-reports",
+    consolidateAll: false
+});
+
 jasmine.getEnv().addReporter(consoleReporter);
+jasmine.getEnv().addReporter(junitReporter);
