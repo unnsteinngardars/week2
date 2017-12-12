@@ -15,7 +15,7 @@ node {
         echo 'Running unit tests'
         sh 'npm run testJenkins'
         sh 'npm run startpostgres'
-        sh 'npm run starserver:dev'
+        sh 'npm run startserver:dev'
     }
     stage('Deploy') {
         echo 'Deploying..'
