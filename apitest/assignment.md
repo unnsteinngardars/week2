@@ -2,13 +2,18 @@
 
 ## Assignment in user-api.js 
 *Assignment*: Explain what the push/pop functions do for this API. What effect would it have on the fluent API if we did not have them?
-Answer: The push and pop functions are pushing and popping expected events that are returned after commands are executed.
+
+* Answer: The push and pop functions are pushing and popping expected events that are returned after commands are executed.
+
+* Answer2: The push function pushes events into the queue counters[] that ensures that procedures are performed in the correct order. The pop function pops them out when the procedures has finished. If we would not have them then there would be nothing that assures that events are performed in the correct order and the game would be a mess!
 
 ## Assignment in test-api.js
 *Assignment*: Trace this call - back and forth - through the code.
 Put in log statements that enable you to trace the messages going back and forth.
 Result is a list of modules/functions in this source code which get invoked when cleanDatabase is called.
-Answer: example when running npm run apitest
+
+* Answer: example when running npm run apitest
+
 ```
 1) User chat API
 socketVerb issueCommand in outgoing-socket-io-message-port.js
@@ -52,7 +57,8 @@ EVENT: sessionAck popped from waitingFor.counters[verb] inside user-api.js at Tu
 We logged events in multiple server side file but nothing logged to console.
 ## tictactoe-game-player.js
 *Assignment*: Explain how this apparently sequential code can function to play *two* sides of the game.
-Answer: playOside is a function that is executed after userA has created a game and before all calls for userA. each function chained to userA and userB is expecting an event before it can finish it's execution and therefore it works to make both player play against each other.
+
+* Answer: playOside is a function that is executed after userA has created a game and before all calls for userA. Each function chained to userA and userB is expecting an event before it can finish it's execution and therefore it works to make both player play against each other.
 
 *Assignment*: Run load tests. See them succeed a couple of times. 
 Move expectMoveMade() and expectGameJoined() after joinGame() call, and expectGameCreated() after createGame() call like this: 
