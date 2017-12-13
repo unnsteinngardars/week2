@@ -2,13 +2,13 @@ const _ = require('lodash');
 module.exports = function (injected) {
 
     return function (history) {
-        let gridSize = 3;
-        let gameFull = false;
-        let gameStarted = false;
-        let gameGrid = [['', '', ''], ['', '', ''], ['', '', '']];
-        let gameScore = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        let moveCount = 0;
-        let nextMove = 'X';
+        // let gridSize = 3;
+        // let gameFull = false;
+        // let gameStarted = false;
+        // let gameGrid = [['', '', ''], ['', '', ''], ['', '', '']];
+        // let gameScore = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        // let moveCount = 0;
+        // let nextMove = 'X';
 
         function processEvent(event) {
             if (event.type === "GameJoined") {
