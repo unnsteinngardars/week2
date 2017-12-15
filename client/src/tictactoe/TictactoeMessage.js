@@ -9,7 +9,7 @@ export default function (injected) {
             super();
             this.state = {
                 lastMessage: "Nothing happened yet",
-                user: "no user available",
+                user: "",
             }
         }
 
@@ -25,15 +25,12 @@ export default function (injected) {
             this.unsubscribe();
         }
         render() {
-            if(this.state.lastMessage == "GameDraw"){
-          	    return <div className="TicTacToeMessage">
-                    {this.state.lastMessage}
-                </div>
-          }
-          else {
-              return <div className="TicTacToeMessage">
-                  {this.state.lastMessage + " by player " + this.state.user}
-              </div>
+             console.log(this.state.lastMessage);
+             return <div className="TictactoeMessage">
+                 <div className="lastMessage">
+                     {this.state.lastMessage + " " + this.state.user}
+                 </div>
+             </div>
          }
       }
     }
