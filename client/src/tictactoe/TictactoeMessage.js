@@ -18,7 +18,7 @@ export default function (injected) {
                 console.log(gameEvent);
                 this.setState({
                     lastMessage: gameEvent.type,
-                    user: gameEvent.side
+                    user: gameEvent.move.side
 // When debugging, it is very nice to see last event in UI
 //                    lastMessage: JSON.stringify(gameEvent)
                 });
