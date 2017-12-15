@@ -571,7 +571,11 @@ describe('place move command', function () {
                     userName: "Gummi"
                 },
                 name: "TheFirstGame",
-                timeStamp: "2014-12-02T11:29:29"
+                timeStamp: "2014-12-02T11:29:29",
+                move: {
+                    xy: {x: 2, y: 2},
+                    side: 'O'
+                }
             }
         ];
     });
