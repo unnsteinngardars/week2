@@ -51,8 +51,8 @@ function create-ec2-instance(){
         echo ${INSTANCE_ID} > ./ec2_instance/instance-id.txt
 
         echo Waiting for instance to be running
-        echo aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
-        aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
+        echo aws ec2 wait --region us-east-2 instance-running --instance-ids ${INSTANCE_ID}
+        aws ec2 wait --region us-east-2 instance-running --instance-ids ${INSTANCE_ID}
         export INSTANCE_PUBLIC_NAME=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --query "Reservations[*].Instances[*].PublicDnsName" --output=text)
         echo EC2 instance ${INSTANCE_ID} ready and available on ${INSTANCE_PUBLIC_NAME}
 
