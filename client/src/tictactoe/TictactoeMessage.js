@@ -31,8 +31,7 @@ export default function (injected) {
                      {this.state.lastMessage + " " + this.state.user}
                  </div>
              </div>
-         }
-      }
+        }
     }
     return TictactoeMessage;
 }
