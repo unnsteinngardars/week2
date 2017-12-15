@@ -9,7 +9,7 @@ module.exports=function(injected){
 
     return {
         dispatchThroughIo(routingKey, socketVerb, conditionFn){
-            // console.log("socketVerb " + socketVerb + " in " + file);
+            //console.log("socketVerb " + socketVerb + " in " + file);
             socketVerb = socketVerb || 'eventIssued';
             conditionFn = conditionFn || function(){
                 return true;

@@ -19,8 +19,8 @@ module.exports=function(injected){
                 if(incomingMessageLogger){
                     incomingMessageLogger(socketIoVerb, message);
                 }
-                // console.log("message inside " + file);
-                // console.log(message);
+                //console.log("message inside " + file);
+                //console.log(message);
                 messageRouter.routeMessage(message);
             };
 

@@ -25,8 +25,8 @@ describe('Tictactoe load test', function () {
 
     /* Assignment: Find appropriate numbers to configure the load test so it passes on your buildserver
     * under normal load. */
-    let timelimit = 10000;
-    let count = 60;
+    let timelimit = 5000;
+    let count = 40;
 
     beforeEach(function (done) {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = timelimit;

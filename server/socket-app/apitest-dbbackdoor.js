@@ -1,3 +1,5 @@
+var path = require('path');
+const file = path.basename(__filename);
 module.exports=function(injected){
 
     const dbPool = injected('dbPool');
@@ -22,6 +24,7 @@ module.exports=function(injected){
                     if(err) {
                         errCb('error executing statement ' + err + ", params:" + statementParams);
                     } else {
+                        console.log("event tableCleaned from " + file);
                         eventRouter.routeMessage({eventId:"eventLogCleaned", type:"tableCleaned", tableName:"eventlog"});
                     }
                 });
@@ -37,6 +40,7 @@ module.exports=function(injected){
                     if(err) {
                         errCb('error executing statement ' + err + ", params:" + statementParams);
                     } else {
+                        console.log("event tableCleaned from " + file);
                         eventRouter.routeMessage({eventId:"commandLogCleaned", type:"tableCleaned", tableName:"commandlog"});
                         successCb();
                     }
@@ -51,6 +55,7 @@ module.exports=function(injected){
             eventRouter.routeMessage({type:"databaseCleanError", err:err});
             console.error('Error clearing database tables: ' + err)
         }, function(){
+            console.log("event databaseCleaned from " + file);
             eventRouter.routeMessage({type:"databaseCleaned"});
         })
     });
