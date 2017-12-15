@@ -1,11 +1,17 @@
 # Jenkins url
+https://tinyurl.com/hgop-jenkins
 http://ec2-13-58-66-142.us-east-2.compute.amazonaws.com:8080/
 * Login info
     * Username: hgop
     * Password: *see canvas*
         * https://www.youtube.com/watch?v=4r836F3y1pI
 # Running instance - TicTacToe 
-http://ec2-18-221-123-79.us-east-2.compute.amazonaws.com:8080/
+https://tinyurl.com/hgop-tictactoe
+http://ec2-18-217-78-199.us-east-2.compute.amazonaws.com:8000/
+
+# Datadog public url
+https://tinyurl.com/hgop-datadog
+https://p.datadoghq.com/sb/b0d4bf5e7-c943ab17c9
 
 ## Asdis : url 
 Við unnum saman í þessu verkefni en höfðum aðskilin repo. Við vorum að lenda í vandræðum með að deila repo-i og aws serverum þannig við ákváðum að gera þetta í sitthvoru lagi, en samt saman. Okkur fannst það líka gott uppá að báðir aðilar læri jafn vel á allt ferlið í heildsinni. 
