@@ -4,5 +4,6 @@
 /build
 /.idea/
 /jenkins/ec2_instance/
+/jasmine-reports/
 /provisioning/ec2_instance/
 todo.md

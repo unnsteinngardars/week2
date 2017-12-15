@@ -41,28 +41,28 @@ module.exports=function(injected){
             // Put in log statements that enable you to trace the messages going back and forth.
             // Result is a list of modules/functions in this source code which get invoked when cleanDatabase is called.
             cleanDatabase:()=>{
-                console.log("Inside cleanDatabase function in " + file);
+                //console.log("Inside cleanDatabase function in " + file);
                 let cmdId = commandId++;
                 routingContext.commandRouter.routeMessage({commandId:cmdId, type:"cleanDatabase"});
                 return me;
 
             },
             waitForCleanDatabase:(whenClean)=>{
-                console.log("Inside waitForCleanDatabase function in " + file);
-                console.log("event 'expectDatabaseCleaned' pushed on " + Date() + " in " + file);
-                console.log("event 'expectDatabaseCleaned' pushed on " + Date() + " in " + file);
+                //console.log("Inside waitForCleanDatabase function in " + file);
+                //console.log("event 'expectDatabaseCleaned' pushed on " + Date() + " in " + file);
+                //console.log("event 'expectDatabaseCleaned' pushed on " + Date() + " in " + file);
                 waitingFor.push("expectDatabaseCleaned");
                 routingContext.eventRouter.on('databaseCleaned', function(chatMessage){
                     let msg = waitingFor.pop(); // expectDatabaseCleaned
-                    console.log("event '" + msg + "'2 popped at " + Date() + " in " + file);
+                    //console.log("event '" + msg + "'2 popped at " + Date() + " in " + file);
                     whenClean && whenClean();
                 });
                 return me;
 
             },
             then:(whenDoneWaiting)=>{
-                console.log("Inside then function in " + file);
-                console.log("time upon entering " + Date());
+                //console.log("Inside then function in " + file);
+                //console.log("time upon entering " + Date());
                 function waitLonger(){
                     if(waitingFor.length>0){
                         setTimeout(waitLonger, 0);
@@ -71,11 +71,11 @@ module.exports=function(injected){
                     whenDoneWaiting();
                 }
                 waitLonger();
-                console.log("time upon exiting " + Date());
+                //console.log("time upon exiting " + Date());
                 return me;
             },
             disconnect:function(){
-                console.log("Inside disconnect function in " + file);
+                //console.log("Inside disconnect function in " + file);
                 routingContext.socket.disconnect();
             }
             

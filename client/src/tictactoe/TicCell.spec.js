@@ -34,13 +34,49 @@ describe("Tic Cell", function () {
         component = shallow(<TicCell coordinates={{x:1,y:2}} gameId="thegame" />, div);
     });
 
+    function given() {
+        //noinspection JSUnusedAssignment
+        let side, xy, gameId="thegame";
+        let api = {
+            side(aside){
+                side = aside;
+                return api;
+            },
+            gameId(agameId){
+                gameId=agameId;
+                return api;
+            },
+            xy(axy){
+                xy = axy;
+                return api;
+            },
+            xy(axy){
+                xy = axy;
+                return api;
+            },
+            placed(){
+                eventRouter.routeMessage({
+                    type: "MovePlaced",
+                    gameId: gameId,
+                    move: {
+                        side: side,
+                        xy: xy
+                    }
+                });
+                return api;
+            }
+        };
+        return api;
+
+    }
 
     it('should render without error', function () {
 
     });
 
-    it('should do more stuff', function () {
-
+    it('should place X in x:1 and y:2', function () {
+        given().gameId("thegame").side("X").xy({x:1, y:2}).placed();
+        expect(component.text()).toBe("X");
     })
 
 });

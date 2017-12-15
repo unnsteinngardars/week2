@@ -99,4 +99,6 @@ Run load tests again. They should fail. Explain why they fail.
 
 ## tictactoe.loadtest.js
 *Assignment*: Find appropriate numbers to configure the load test so it passes on your buildserver under normal load.
-* Answer: for tictactoe.loadtest.js we found out that the timelimit is 5 seconds and count is 30, those numbers have never failed, when we upped the count to 65 it failed sometimes and with 70 it almost failed every time. for chat.loadtest.js we found out that timelimit is 5 seconds and cound 100.
+* Answer: 
+  * Locally: for tictactoe.loadtest.js we found out that the timelimit is 5 seconds and count is 30, those numbers have never failed, when we upped the count to 65 it failed sometimes and with 70 it almost failed every time. for chat.loadtest.js we found out that timelimit is 5 seconds and cound 100.
+  * Jenkins: for tictactoe.loadtest.js we upped count to 40 and chat.loadtest.js we upped count to 120
