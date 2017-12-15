@@ -15,12 +15,9 @@ export default function (injected) {
 
         componentWillMount() {
             this.unsubscribe = eventRouter.on('*', (gameEvent) => {
-                console.log(gameEvent);
                 this.setState({
                     lastMessage: gameEvent.type,
                     user: gameEvent.move.side
-// When debugging, it is very nice to see last event in UI
-//                    lastMessage: JSON.stringify(gameEvent)
                 });
             })
         }
@@ -28,13 +25,17 @@ export default function (injected) {
             this.unsubscribe();
         }
         render() {
-            console.log(this.state.lastMessage);
-            return <div className="TictactoeMessage">
-                <div className="lastMessage">
-                    {this.state.lastMessage + " " + this.state.user}
+            if(this.state.lastMessage == "GameDraw"){
+          	    return <div className="TicTacToeMessage">
+                    {this.state.lastMessage}
                 </div>
-            </div>
-        }
+          }
+          else {
+              return <div className="TicTacToeMessage">
+                  {this.state.lastMessage + " by player " + this.state.user}
+              </div>
+         }
+      }
     }
     return TictactoeMessage;
 }
